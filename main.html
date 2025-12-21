@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demas Nwoko — A Rebel’s Heartbeat | The Language Called Vernacular</title>
+    <title>Demas Nwoko — Vernacular | The Natural Language of Design</title>
     <meta name="description" content="An interactive reflection by The Legacy Initiative on Demas Nwoko’s conviction that vernacular is the natural language of design.">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
@@ -124,13 +124,8 @@
 </head>
 <body>
 
-    <div class="audio-player">
-        <button class="audio-btn" onclick="toggleAudio()">🔊 Play Wisdom Narration</button>
-        <audio id="wisdom-audio" src="wisdom_narration_v1.mp3"></audio>
-    </div>
-
     <header>
-        <img src="WhatsApp_Image_2025-12-19_at_02.20.07_(3).jpeg" alt="New Culture Studios" class="logo">
+        <img src="img_1/WhatsApp_Image_2025-12-19_at_02.20.07_(3).jpeg" alt="New Culture Studios" class="logo">
         <nav>
             <a href="#artwork">Artwork</a>
             <a href="#postcards">Postcards</a>
@@ -154,7 +149,7 @@
 
     <section id="artwork" class="split-section">
         <div>
-            <img src="IMG_0390.jpg" alt="Low relief portrait titled ‘Man of the Soil’ showing a figure emerging from textured clay surface." class="art-img">
+            <img src="img_1/IMG_0390.jpg" alt="Low relief portrait titled ‘Man of the Soil’ showing a figure emerging from textured clay surface." class="art-img">
             <p style="font-size: 0.8rem; color: var(--nc-gold); margin-top: 10px;">Detail. “Man of the Soil.” Mixed media low-relief.</p>
         </div>
         <div>
@@ -217,19 +212,5 @@
     <footer style="padding: 2rem 10%; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 0.8rem; opacity: 0.5;">
         &copy; 2025 The Legacy Initiative. | Not as memory, but as method.
     </footer>
-
-    <script>
-        function toggleAudio() {
-            const audio = document.getElementById('wisdom-audio');
-            const btn = document.querySelector('.audio-btn');
-            if (audio.paused) {
-                audio.play();
-                btn.innerHTML = "⏸ Pause Narration";
-            } else {
-                audio.pause();
-                btn.innerHTML = "▶ Resume Narration";
-            }
-        }
-    </script>
 </body>
 </html>

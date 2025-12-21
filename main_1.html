@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-NG">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demas Nwoko — Vernacular | The Natural Language of Design</title>
+    <meta name="description" content="An interactive reflection by The Legacy Initiative on Demas Nwoko’s conviction that vernacular is the natural language of design. [cite: 107]">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --nc-graypurple: #1c182e; /* primary background [cite: 91] */
+            --nc-green: #039641;      /* action accents [cite: 92] */
+            --nc-orange: #fc6c02;     /* highlights [cite: 93] */
+            --nc-red: #cd0900;        /* anchors [cite: 94] */
+            --nc-gold: #f4a036;       /* subtle borders/metadata [cite: 95] */
+            --white: #ffffff;
+            --body-font: 'Inter', sans-serif;
+            --heading-font: 'Playfair Display', serif;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background-color: var(--nc-graypurple);
+            color: var(--white);
+            font-family: var(--body-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Sticky Header [cite: 112] */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: linear-gradient(to bottom, var(--nc-graypurple), transparent);
+            z-index: 1000;
+        }
+
+        .logo { height: 50px; }
+
+        /* Hero Section - Centered Image [cite: 116-119] */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .hero-main-img {
+            max-width: 450px;
+            width: 80%;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 30px rgba(244, 160, 54, 0.2));
+            transition: transform 0.5s ease;
+        }
+
+        .hero-main-img:hover {
+            transform: scale(1.02); /* Gentle parallax effect [cite: 118] */
+        }
+
+        h1 { 
+            font-family: var(--heading-font); 
+            font-size: clamp(2.5rem, 6vw, 4rem); 
+            color: var(--nc-gold); 
+            margin: 0; 
+            line-height: 1.1;
+        }
+
+        .hero-sub { 
+            margin: 1.5rem auto; 
+            max-width: 700px;
+            font-size: 1.2rem; 
+            font-style: italic;
+            color: var(--white);
+            opacity: 0.9;
+        }
+
+        .cta-container { margin-top: 2rem; }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            margin: 10px;
+            transition: 0.3s;
+        }
+        .btn-green { background: var(--nc-green); color: white; border: none; }
+        .btn-outline { border: 1px solid var(--nc-gold); color: var(--nc-gold); }
+
+        /* Audio Control [cite: 115] */
+        .audio-player { position: fixed; bottom: 30px; left: 30px; z-index: 1000; }
+        .audio-btn { 
+            background: rgba(28, 24, 46, 0.8); 
+            border: 1px solid var(--nc-gold); 
+            color: var(--nc-gold); 
+            padding: 10px 15px; 
+            cursor: pointer;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Narrative Sections [cite: 139] */
+        section { padding: 8rem 10%; max-width: 1200px; margin: 0 auto; }
+        .pull-quote { 
+            font-family: var(--heading-font); 
+            font-size: clamp(1.8rem, 4vw, 2.8rem); 
+            color: var(--nc-gold); 
+            text-align: center; 
+            margin: 5rem 0; 
+            padding: 0 5%;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .hero-main-img { max-width: 300px; }
+            section { padding: 4rem 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="audio-player">
+        <button class="audio-btn" onclick="toggleAudio()">Sound: Play Wisdom</button>
+        <audio id="wisdom-audio" loop src="wisdom_narration_v1.mp3"></audio>
+    </div>
+
+    <header>
+        <img src="WhatsApp_Image_2025-12-19_at_02.20.07_(3).jpeg" alt="New Culture Studios Logo" class="logo">
+    </header>
+
+    <section class="hero">
+        <img src="IMG_0390.jpg" alt="Man of the Soil - Demas Nwoko Silhouette" class="hero-main-img">
+        
+        <h1>A Rebel’s Heartbeat</h1>
+        <p class="hero-sub">“Vernacular is the natural language called design — the heartbeat of an authentic African modernity.” [cite: 87, 119]</p>
+        
+        <div class="cta-container">
+            <a href="#story" class="btn btn-green">View the Work</a>
+            <a href="#" class="btn btn-outline">Download Mini-Booklet</a>
+        </div>
+    </section>
+
+    <section id="story">
+        <div class="pull-quote">
+            “Vernacular is the natural language called design” [cite: 153]
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p>We met Baba in a quick studio session and heard a simple, disarming line: <em>“If it is not vernacular, what else is there?”</em> [cite: 144] That sentence folded the room: vernacular was not a style to be assigned; it was a language you learned from home, a way to know a client and a place[cite: 145, 146].</p>
+            
+            <p>From the Zaria Art Society to the New Culture Studio, Demas taught us that design should begin with listening — to materials, ritual, climate and the way a people live[cite: 148]. He practiced <strong>Natural Synthesis</strong>: merging indigenous ideas with modern tools so that form and meaning stayed native and useful[cite: 149].</p>
+            
+            <p style="border-top: 1px solid var(--nc-gold); margin-top: 3rem; padding-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+                Produced by <strong>The Legacy Initiative</strong> in partnership with <strong>Arc Bofu</strong>. This project is a short letter — an exploration — that seeks the heartbeat in material, not in labels[cite: 152, 161].
+            </p>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 4rem; opacity: 0.4; font-size: 0.8rem;">
+        &copy; 2025 The Legacy Initiative. Not as memory, but as method. [cite: 73]
+    </footer>
+
+    <script>
+        function toggleAudio() {
+            const audio = document.getElementById('wisdom-audio');
+            const btn = document.querySelector('.audio-btn');
+            if (audio.paused) {
+                audio.play();
+                btn.innerHTML = "Sound: Pause";
+            } else {
+                audio.pause();
+                btn.innerHTML = "Sound: Play Wisdom";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-NG">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demas Nwoko — A Rebel’s Heartbeat | The Language Called Vernacular</title>
+    <meta name="description" content="An interactive reflection by The Legacy Initiative on Demas Nwoko’s conviction that vernacular is the natural language of design.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Brand Color Tokens [cite: 90-95, 186-194] */
+            --nc-graypurple: #1c182e;
+            --nc-green: #039641;
+            --nc-orange: #fc6c02;
+            --nc-red: #cd0900;
+            --nc-gold: #f4a036;
+            --white: #ffffff;
+            --body-font: 'Inter', sans-serif;
+            --heading-font: 'Playfair Display', serif; /* Placeholder for New Culture Font */
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background-color: var(--nc-graypurple);
+            color: var(--white);
+            font-family: var(--body-font);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Sticky Header [cite: 112-115] */
+        header {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(28, 24, 46, 0.95);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(244, 160, 54, 0.2);
+        }
+
+        .logo { height: 40px; }
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section [cite: 116-121] */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            background: linear-gradient(rgba(28, 24, 46, 0.6), rgba(28, 24, 46, 0.8)), 
+                        url('IMG_0390.jpg') center/cover no-repeat;
+            background-attachment: fixed; /* Parallax effect [cite: 118] */
+        }
+
+        .hero-content { max-width: 650px; }
+        h1 { font-family: var(--heading-font); font-size: 3.5rem; color: var(--nc-gold); margin: 0; }
+        .hero h2 { font-size: 2rem; font-weight: 300; margin: 0.5rem 0; }
+        .hero-sub { margin: 2rem 0; font-size: 1.1rem; border-left: 2px solid var(--nc-gold); padding-left: 1.5rem; }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-right: 1rem;
+            transition: 0.3s;
+        }
+        .btn-green { background: var(--nc-green); color: white; }
+        .btn-outline { border: 1px solid var(--nc-gold); color: var(--nc-gold); }
+
+        /* General Section Layout */
+        section { padding: 8rem 10%; }
+        h3 { font-family: var(--heading-font); color: var(--nc-gold); font-size: 2.2rem; }
+
+        /* Split Section: Artwork [cite: 122-129] */
+        .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .art-img { width: 100%; border: 1px solid var(--nc-gold); padding: 10px; background: #25213b; }
+
+        /* Postcards Grid [cite: 130-138] */
+        .postcard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .card { background: #25213b; padding: 2rem; border-bottom: 3px solid transparent; transition: 0.3s; cursor: pointer; }
+        .card:hover { border-bottom-color: var(--nc-orange); transform: translateY(-5px); }
+        .card strong { color: var(--nc-orange); display: block; margin-bottom: 1rem; }
+
+        /* Story Section [cite: 139-153] */
+        .story-content { max-width: 800px; margin: 0 auto; }
+        .pull-quote { 
+            font-family: var(--heading-font); 
+            font-size: 2.5rem; 
+            color: var(--nc-gold); 
+            text-align: center; 
+            margin: 4rem 0; 
+            line-height: 1.2;
+        }
+
+        /* Credits [cite: 159-165, 201-204] */
+        .credits-box { background: rgba(255,255,255,0.05); padding: 3rem; margin-top: 4rem; font-size: 0.9rem; }
+        
+        /* Audio Control [cite: 115] */
+        .audio-player { position: fixed; bottom: 20px; left: 20px; z-index: 1000; }
+        .audio-btn { background: var(--nc-graypurple); border: 1px solid var(--nc-gold); color: var(--nc-gold); padding: 10px; cursor: pointer; }
+
+        @media (max-width: 768px) {
+            .split-section, .hero { flex-direction: column; text-align: center; }
+            h1 { font-size: 2.5rem; }
+            section { padding: 4rem 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="audio-player">
+        <button class="audio-btn" onclick="toggleAudio()">🔊 Play Wisdom Narration</button>
+        <audio id="wisdom-audio" src="wisdom_narration_v1.mp3"></audio>
+    </div>
+
+    <header>
+        <img src="WhatsApp_Image_2025-12-19_at_02.20.07_(3).jpeg" alt="New Culture Studios" class="logo">
+        <nav>
+            <a href="#artwork">Artwork</a>
+            <a href="#postcards">Postcards</a>
+            <a href="#story">The Story</a>
+            <a href="#credits">Credits</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>A Rebel’s Heartbeat</h1>
+            <h2>The Language Called Vernacular</h2>
+            <div class="hero-sub">
+                “Vernacular is the natural language called design — the heartbeat of an authentic African modernity.”
+            </div>
+            <a href="#artwork" class="btn btn-green">View the Work</a>
+            <a href="#" class="btn btn-outline">Download PDF</a>
+            <p style="font-size: 0.7rem; margin-top: 15px; text-transform: uppercase;">Scan the postcard → or use the QR on the framed piece.</p>
+        </div>
+    </section>
+
+    <section id="artwork" class="split-section">
+        <div>
+            <img src="IMG_0390.jpg" alt="Low relief portrait titled ‘Man of the Soil’ showing a figure emerging from textured clay surface." class="art-img">
+            <p style="font-size: 0.8rem; color: var(--nc-gold); margin-top: 10px;">Detail. “Man of the Soil.” Mixed media low-relief.</p>
+        </div>
+        <div>
+            <h3>Man of the Soil</h3>
+            <p>Low-relief (45 × 45 cm). This piece imagines Demas rising from the ground that taught him. It is a simple, essential portrait: creativity emerging from soil, tradition and everyday craft.</p>
+            <p>The work echoes our conversations and the phrase that guided the project: <strong>“If he has recognition out there, it’s because of what he did in here.”</strong></p>
+            <div style="margin-top: 2rem; padding: 1rem; border: 1px solid var(--nc-gold); display: inline-block;">
+                <span style="color: var(--nc-gold);">[ QR ]</span> SCAN FOR THE MINI-EXHIBIT →
+            </div>
+        </div>
+    </section>
+
+    <section id="postcards" style="background: #141122;">
+        <h3 style="text-align: center;">Interpreting the Cards</h3>
+        <p style="text-align: center; max-width: 600px; margin: 0 auto;">“Small cards, large ideas. Each A5 abstract is a visual note — an interpretation of a part of the vernacular.”</p>
+        
+        <div class="postcard-grid">
+            <div class="card">
+                <strong>ROOT</strong>
+                <p>“Vernacular is your mother tongue.”</p>
+                <small style="color: #888;">Red laterite field, textured strokes.</small>
+            </div>
+            <div class="card">
+                <strong>SYNTHESIS</strong>
+                <p>“Natural synthesis — merging the local mind with modern practice.”</p>
+                <small style="color: #888;">Sketch fragments and theatre-stage shadows.</small>
+            </div>
+            <div class="card">
+                <strong>FUTURE</strong>
+                <p>Design that speaks the client’s vernacular.</p>
+                <small style="color: #888;">Grounded projection through indigenous intelligence.</small>
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="story-content">
+        <h3 style="text-align: center;">Our Story</h3>
+        <p style="text-align: center; color: var(--nc-gold); text-transform: uppercase; letter-spacing: 2px;">An exploration of vernacular as a language</p>
+        
+        <p>We met Baba in a quick studio session and heard a simple, disarming line: <em>“If it is not vernacular, what else is there?”</em> That sentence folded the room: vernacular was not a style to be assigned; it was a language you learned from home, a way to know a client and a place[cite: 144, 146].</p>
+
+        <div class="pull-quote">
+            “Vernacular is the natural language called design”
+        </div>
+
+        <p>From the Zaria Art Society and the idea of <strong>Natural Synthesis</strong>, through projects such as the Dominican Mission Chapel and the New Culture Studio, Demas showed us that form must grow from context[cite: 176]. His buildings are not ornaments; they are answers — responses to climate, ritual, craft, and the ways people live[cite: 177].</p>
+        
+        <p>This page is not a biography. It is a short letter — an exploration — that seeks the heartbeat in material, not in labels[cite: 152].</p>
+    </section>
+
+    <section id="credits">
+        <div class="credits-box">
+            <h4 style="color: var(--nc-gold); text-transform: uppercase;">Credits & Note on Method</h4>
+            <p>Curated & Produced by <strong>The Legacy Initiative</strong> In partnership with <strong>Arc Bofu (New Culture Studio)</strong></p>
+            <p>Project Lead: Divine Chukwubuihem | Artwork: [Sculptor Name] | Postcards: [Illustrator Name] | Voice: Wisdom Onyema | Research: The Legacy Initiative.</p>
+            <p style="font-size: 0.7rem; opacity: 0.6; margin-top: 2rem;">The Legacy Initiative holds the project copyright. Arc Bofu is granted non-exclusive display rights for the Phase-1 exhibition.</p>
+        </div>
+    </section>
+
+    <footer style="padding: 2rem 10%; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 0.8rem; opacity: 0.5;">
+        &copy; 2025 The Legacy Initiative. | Not as memory, but as method.
+    </footer>
+
+    <script>
+        function toggleAudio() {
+            const audio = document.getElementById('wisdom-audio');
+            const btn = document.querySelector('.audio-btn');
+            if (audio.paused) {
+                audio.play();
+                btn.innerHTML = "⏸ Pause Narration";
+            } else {
+                audio.pause();
+                btn.innerHTML = "▶ Resume Narration";
+            }
+        }
+    </script>
+</body>
+</html>

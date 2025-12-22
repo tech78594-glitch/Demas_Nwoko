@@ -1,125 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>David @ 22 - His Legacy</title>
-<style>
-  /* Base styles for light theme */
-  @font-face {
-    font-family: 'MyFont';
-    src: url('src/NewCulture-Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-  }
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demas Nwoko @ 90</title>
+    <meta name="description" content="An interactive reflection by The Legacy Initiative on Demas Nwoko's conviction that vernacular is the natural language of design.">
+    <style>
+      /* Base styles for light theme */
+      :root {
+        /* Brand Color Tokens [cite: 90-95, 186-194] */
+        --nc-graypurple: #1c182e;
+        --nc-green: #039641;
+        --nc-orange: #fc6c02;
+        --nc-red: #cd0900;
+        --nc-gold: #f4a036;
+        --white: #ffffff;
+        --body-font: 'Inter', sans-serif;
+        --heading-font: 'Playfair Display', serif; /* Placeholder for New Culture Font */
+      }
 
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    /* Using a clean serif font for an elegant, light feel */
-    font-family: 'Georgia', 'Times New Roman', Times, serif;
-    /* Light cream background color */
-    background-color: #f9f7f1;
-    /* Soft dark gray for text, not harsh black */
-    color: #555555;
-  }
+      @font-face {
+        font-family: 'MyFont';
+        src: url('src/NewCulture-Regular.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
 
-  /* Main container holding the three elements */
-  .landing-container {
-    display: flex;
-    /* Distribute space evenly between elements */
-    justify-content: space-evenly;
-    /* Align items vertically in the center */
-    align-items: center;
-    /* Ensure the container takes up the full viewport height */
-    min-height: 100vh;
-    padding: 2rem;
-    box-sizing: border-box;
-  }
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        /* Use the embedded custom font first, then serif fallbacks */
+        font-family: 'MyFont', 'Georgia', 'Times New Roman', Times, serif;
+        /* Light cream background color */
+        background-color: #f9f7f1;
+        /* Soft dark gray for text, not harsh black */
+        color: #555555;
+      }
 
-  /* Styles for the side text blocks */
-  .side-text {
-    flex: 1; /* Allow text blocks to grow */
-    text-align: center;
-    padding: 1rem;
-  }
+      /* Header section styles */
+      header {
+        display: flex;
+        /* Distribute space evenly between elements */
+        justify-content: space-evenly;
+        /* Align items vertically in the center */
+        align-items: center;
+        /* Ensure the header takes up the full viewport height */
+        min-height: 100vh;
+        box-sizing: border-box;
+        position: sticky;
+        top: 0;
+        display: flex;
+        /*justify-content: space-between; */
+        /*align-items: center;*/
+        padding: 1rem 5%;
+        background: rgba(28, 24, 46, 0.95);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(244, 160, 54, 0.2);
+      }
 
-  /* Typography for the main text */
-  .side-text h1 {
-    font-size: 2.5rem;
-    font-weight: 400; /* Lighter weight for elegance */
-    letter-spacing: 0.05em;
-    margin: 0;
-    /* Optional subtle gold accent color for text */
-    color: #8a7f60;
-  }
+      .logo { height: 40px; }
+      nav a {
+        color: var(--white);
+        text-decoration: none;
+        margin-left: 1.5rem;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
 
-  /* Container for the central image */
-  .center-image-wrapper {
-    flex: 0 0 auto; /* Do not stretch */
-    margin: 0 2rem; /* Spacing around the image */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+      /* Styles for the side text blocks */
+      .side-text {
+        flex: 1; /* Allow text blocks to grow */
+        text-align: center;
+        padding: 1rem;
+      }
 
-  /* Styling the image itself */
-  .center-image {
-    /* Constrain width so it doesn't overpower the page */
-    max-width: 250px;
-    width: 100%;
-    height: auto;
-    display: block;
-    /* Optional subtle drop shadow to lift it off the light background */
-    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));
-  }
+      /* Typography for the main text */
+      .side-text h1 {
+        font-size: 2.5rem;
+        font-weight: 400; /* Lighter weight for elegance */
+        letter-spacing: 0.05em;
+        margin: 0;
+        /* Optional subtle gold accent color for text */
+        color: #8a7f60;
+      }
 
-  /* Responsive design for smaller screens (tablets and phones) */
-  @media (max-width: 768px) {
-    .landing-container {
-      /* Stack elements vertically on small screens */
-      flex-direction: column;
-      justify-content: center;
-    }
+      /* Highlight style for emphasized words */
+      .highlight {
+        -webkit-text-stroke: 1px #000000;
+        color: #f4a036; /* Gold color */
+      }
 
-    .side-text, .center-image-wrapper {
-      /* Add vertical spacing between stacked elements */
-      margin: 1.5rem 0;
-    }
+      /* Container for the central image */
+      .center-image-wrapper {
+        flex: 0 0 auto; /* Do not stretch */
+        margin: 0 2rem; /* Spacing around the image */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-    /* Order adjustments for mobile flow: Image first, then text */
-    .center-image-wrapper {
-      order: 1;
-    }
-    .left-text-block {
-      order: 2;
-    }
-    .right-text-block {
-      order: 3;
-    }
+      /* Styling the image itself */
+      .center-image {
+        /* Constrain width so it doesn't overpower the page */
+        max-width: 250px;
+        width: 100%;
+        height: auto;
+        display: block;
+        /* Optional subtle drop shadow to lift it off the light background */
+        filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));
+      }
 
-    .side-text h1 {
-      font-size: 1.8rem; /* Reduce font size slightly on mobile */
-    }
-  }
-</style>
-</head>
+      /* Responsive design for smaller screens (tablets and phones) */
+      @media (max-width: 768px) {
+        .landing-container {
+          /* Stack elements vertically on small screens */
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .side-text, .center-image-wrapper {
+          /* Add vertical spacing between stacked elements */
+          margin: 1.5rem 0;
+        }
+
+        /* Order adjustments for mobile flow: Image first, then text */
+        .center-image-wrapper {
+          order: 1;
+        }
+        .left-text-block {
+          order: 2;
+        }
+        .right-text-block {
+          order: 3;
+        }
+
+        .side-text h1 {
+          font-size: 1.8rem; /* Reduce font size slightly on mobile */
+        }
+      }
+    </style>
+  </head>
 <body>
 
-  <main class="landing-container">
-    <div class="side-text left-text-block">
-      <h1>David @ 22</h1>
-    </div>
+  <header>
+    <img src="img_1/WhatsApp Image 2025-12-19 at 02.20.07 (3).jpeg" alt="New Culture Studios" class="logo">
+    <nav>
+      <a href="#artwork">Artwork</a>
+      <a href="#postcards">Postcards</a>
+      <a href="#story">The Story</a>
+      <a href="#credits">Credits</a>
+    </nav>
+  </header>
 
-    <div class="center-image-wrapper">
-      <img src="image_3.png" alt="TLI Gold Logo" class="center-image">
-    </div>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="side-text left-text-block">
+        <h1><span class="highlight">Demas Nwoko<br>@ 90</span></h1>
+      </div>
 
-    <div class="side-text right-text-block">
-      <h1>His legacy, His heart's beat</h1>
+      <div class="center-image-wrapper">
+        <img src="img_1/IMG_0390.png" alt="TLI Gold Logo" class="center-image">
+      </div>
+
+      <div class="side-text right-text-block">
+        <h1><span class="highlight">His legacy</span><br><span class="highlight">His heart's beat</span></h1>
+      </div>
     </div>
-  </main>
+  </section>
 
 </body>
 </html>

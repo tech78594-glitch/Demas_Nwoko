@@ -11,14 +11,14 @@
     <style>
         @font-face {
             font-family: 'MyFont';
-            src: url('NewCulture-Regular.otf') format('opentype');
+            src: url('src/NewCulture-Regular.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
         }
 
         :root {
-            /* Brand Color Tokens [cite: 90-95, 186-194] */
+            /* Brand Color Tokens */
             --nc-graypurple: #1c182e;
             --nc-green: #039641;
             --nc-orange: #fc6c02;
@@ -41,7 +41,7 @@
             font-size: 16px;
         }
 
-        /* Sticky Header [cite: 112-115] */
+        /* Sticky Header */
         header {
             position: sticky;
             top: 0;
@@ -64,7 +64,7 @@
             letter-spacing: 1px;
         }
 
-        /* Hero Section [cite: 116-121] */
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -72,7 +72,7 @@
             padding: 0 10%;
             background: linear-gradient(rgba(28, 24, 46, 0.6), rgba(28, 24, 46, 0.8)), 
                         url('img_1/Garden.jpeg') center/cover no-repeat;
-            background-attachment: scroll; /* Parallax effect [cite: 118] */
+            background-attachment: scroll; /* Parallax effect */
         }
 
         .hero-content { max-width: 100%;
@@ -138,18 +138,46 @@
         /* General Section Layout */
         section { padding: 8rem 10%; }
         h3 { font-family: var(--heading-font); color: var(--nc-gold); font-size: 2.2rem; }
+        
+        .intro {
+            text-align: center;
+            background: var(--lilac);
+            border-bottom: 1px solid rgba(244, 160, 54, 0.2);
+        }
 
-        /* Split Section: Artwork [cite: 122-129] */
-        .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .intro-content h1 {
+            font-family: var(--custom-font);
+            font-size: 3rem;
+            margin: 0;
+            color: var(--nc-gold);
+        }
+
+        .intro-content h2 {
+            font-family: var(--heading-font);
+            font-size: 2rem;
+            font-weight: 300;
+            margin: 0.5rem 0 1.5rem 0;
+        }
+
+        .intro-sub {
+            font-size: 1.1rem;
+            border-left: 2px solid var(--nc-gold);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Split Section: Artwork */
+        .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; border-bottom: 1px solid rgba(244, 160, 54, 0.2);}
         .art-img { width: 100%; border: 1px solid var(--nc-gold); padding: 10px; background: #25213b; }
 
-        /* Postcards Grid [cite: 130-138] */
+        /* Postcards Grid */
         .postcard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
         .card { background: #25213b; padding: 2rem; border-bottom: 3px solid transparent; transition: 0.3s; cursor: pointer; }
-        .card:hover { border-bottom-color: var(--nc-orange); transform: translateY(-5px); }
-        .card strong { color: var(--nc-orange); display: block; margin-bottom: 1rem; }
+        .card:hover { border-bottom-color: var(--nc-orange); transform: translateY(-50px); }
+        .card strong { color: var(--nc-orange); display: list-item; margin-bottom: 1rem; }
 
-        /* Story Section [cite: 139-153] */
+
+        /* Story Section */
         .story-content { max-width: 800px; margin: 0 auto; }
         .pull-quote { 
             font-family: var(--heading-font); 
@@ -160,10 +188,10 @@
             line-height: 1.2;
         }
 
-        /* Credits [cite: 159-165, 201-204] */
+        /* Credits */
         .credits-box { background: rgba(255,255,255,0.05); padding: 3rem; margin-top: 4rem; font-size: 0.9rem; }
         
-        /* Audio Control [cite: 115] */
+        /* Audio Control */
         .audio-player { position: fixed; bottom: 20px; left: 20px; z-index: 1000; }
         .audio-btn { background: var(--nc-graypurple); border: 1px solid var(--nc-gold); color: var(--nc-gold); padding: 10px; cursor: pointer; }
 
@@ -199,10 +227,14 @@
             <div class="side-text right-text-block">
                 <h1><span class="highlight">His Legacy<br>His heart's beat</span></h1>
             </div>
+        </div>
+    </section>
 
+    <section class="intro">
+        <div class="intro-content">
             <h1>Vernacular</h1>
             <h2>The Natural Language of Design</h2>
-            <div class="hero-sub">
+            <div class="intro-sub">
                 “Vernacular is the natural language called design the heartbeat of an authentic African modernity.”
             </div>
             <a href="#artwork" class="btn btn-green">View the Work</a>
@@ -219,22 +251,25 @@
                 <strong>ROOT</strong>
                 <p>“Vernacular is your mother tongue.”</p>
                 <small style="color: #888;">Red laterite field, textured strokes.</small>
+                <img src="img_1/Root_image_Postcard_1.jpeg" alt="Postcard Root" style="width: 100%; margin-top: 1rem; border: 1px solid var(--nc-gold);">
             </div>
             <div class="card">
                 <strong>LEGACY</strong>
                 <p>“Natural synthesis merging the local mind with modern practice.”</p>
                 <small style="color: #888;">Sketch fragments and theatre-stage shadows.</small>
+                <img src="img_1/Garden.jpeg" alt="Postcard Legacy" style="width: 100%; margin-top: 1rem; border: 1px solid var(--nc-gold);">
             </div>
             <div class="card">
                 <strong>FUTURE</strong>
                 <p>Design that speaks the client’s vernacular.</p>
                 <small style="color: #888;">Grounded projection through indigenous intelligence.</small>
+                <img src="img_1/Landing_Image_1.png" alt="Postcard Future" style="width: 100%; margin-top: 1rem; border: 1px solid var(--nc-gold);">
             </div>
         </div>
     </section>
 
-    <section id="postcards" style="background: #141122;"></section>
-    <section id="postcards" style="background: #141122;"></section>
+    |<!-- <section id="postcards" style="background: #141122;"></section>
+    <section id="postcards" style="background: #141122;"></section> -->
     
     <section id="artwork" class="split-section">
         <div>

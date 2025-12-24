@@ -10,12 +10,13 @@
     
     <style>
         @font-face {
-    font-family: 'MyFont';
-    src: url('NewCulture-Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+            font-family: 'MyFont';
+            src: url('NewCulture-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
             /* Brand Color Tokens [cite: 90-95, 186-194] */
             --nc-graypurple: #1c182e;
@@ -24,14 +25,17 @@
             --nc-red: #cd0900;
             --nc-gold: #f4a036;
             --white: #ffffff;
+            --cream_white: #ffffda;
+            --ash_white: #e9e4d4;
             --body-font: 'Inter', sans-serif;
-            --heading-font: 'MyFont', serif; /* Placeholder for New Culture Font */
+            --heading-font: 'Playfair Display', serif; /* Placeholder for New Culture Font */
+            --custom-font: 'MyFont', serif;
         }
 
         * { box-sizing: border-box; }
         body {
             margin: 0;
-            background-color: var(--nc-graypurple);
+            background-color: var(--ash_white);
             color: var(--white);
             font-family: var(--body-font);
             line-height: 1.6;
@@ -68,8 +72,8 @@
             align-items: center;
             padding: 0 10%;
             background: linear-gradient(rgba(28, 24, 46, 0.6), rgba(28, 24, 46, 0.8)), 
-                        url('img_1/IMG_0390.png') center/cover no-repeat;
-            background-attachment: fixed; /* Parallax effect [cite: 118] */
+                        url('img_1/Garden.jpeg') center/cover no-repeat;
+            background-attachment: scroll; /* Parallax effect [cite: 118] */
         }
 
         .hero-content { max-width: 650px; }
@@ -143,19 +147,32 @@
 
     <section class="hero">
         <div class="hero-content">
+            <div class="side-text left-text-block">
+                <h1><span class="highlight">Demas Nwoko<br>@ 90</span></h1>
+            </div>
+
+            <div class="center-image-wrapper">
+                <img src="img_1/Landing_Image_1.png" alt="Demas Nwoko" class="center-image">
+            </div>
+
+            <div class="side-text right-text-block">
+                <h1><span class="highlight">His Legacy<br>His heart's beat</span></h1>
+            </div>
+
             <h1>Vernacular</h1>
             <h2>The Natural Language of Design</h2>
             <div class="hero-sub">
                 “Vernacular is the natural language called design the heartbeat of an authentic African modernity.”
             </div>
             <a href="#artwork" class="btn btn-green">View the Work</a>
-            <p style="font-size: 0.7rem; margin-top: 15px; text-transform: uppercase;">Scan the postcard → or use the QR on the framed piece.</p>
+            <p style="font-size: 0.7rem; margin-top: 15px; text-transform: uppercase;">Scan the postcard</p>
         </div>
     </section>
 
+    
     <section id="artwork" class="split-section">
         <div>
-            <img src="img_1/Landing_Image_1.png" alt="Low relief portrait titled 'Man of the Soil' showing a figure emerging from textured clay surface." class="art-img">
+            <img src="img_1/Landing_Image_1.png" alt="Man of the Soil" class="art-img">
             <p style="font-size: 0.8rem; color: var(--nc-gold); margin-top: 10px;">Detail. “Man of the Soil.” Mixed media low-relief.</p>
         </div>
         <div>
@@ -179,7 +196,7 @@
                 <small style="color: #888;">Red laterite field, textured strokes.</small>
             </div>
             <div class="card">
-                <strong>SYNTHESIS</strong>
+                <strong>LEGACY</strong>
                 <p>“Natural synthesis merging the local mind with modern practice.”</p>
                 <small style="color: #888;">Sketch fragments and theatre-stage shadows.</small>
             </div>

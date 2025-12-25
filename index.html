@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* Base styles for light theme */
         @font-face {
             font-family: 'MyFont';
             src: url('src/NewCulture-Regular.otf') format('opentype');
@@ -18,7 +17,6 @@
         }
 
         :root {
-        /* Brand Color Tokens */
             --nc-graypurple: #1c182e;
             --nc-green: #039641;
             --nc-orange: #fc6c02;
@@ -32,7 +30,6 @@
 
         * { box-sizing: border-box; }
 
-        /* Lenis Smooth Scroll Setup */
         html.lenis { height: auto; }
         .lenis.lenis-smooth { scroll-behavior: auto; }
         
@@ -41,26 +38,55 @@
             background-color: var(--nc-graypurple);
             color: var(--white);
             font-family: var(--body-font);
-            cursor: none; /* Required for custom cursor */
+            cursor: none;
             overflow-x: hidden;
         }
 
-        /* --- Custom Magnetic Cursor --- */
-        .cursor-dot { position: fixed; width: 8px; height: 8px; background: var(--nc-gold); border-radius: 50%; pointer-events: none; z-index: 9999; }
-        .cursor-circle { position: fixed; width: 40px; height: 40px; border: 1px solid var(--nc-gold); border-radius: 50%; pointer-events: none; z-index: 9998; transition: transform 0.15s ease-out; }
-
-        header {
-            position: fixed; top: 0; width: 100%; display: flex;
-            justify-content: space-between; align-items: center;
-            padding: 30px 5%; z-index: 2000; mix-blend-mode: difference;
+        .cursor-dot { 
+            position: fixed; 
+            width: 8px; 
+            height: 8px; 
+            background: var(--nc-gold); 
+            border-radius: 50%; 
+            pointer-events: none; 
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+        
+        .cursor-circle { 
+            position: fixed; 
+            width: 40px; 
+            height: 40px; 
+            border: 1px solid var(--nc-gold); 
+            border-radius: 50%; 
+            pointer-events: none; 
+            z-index: 9998; 
+            transition: transform 0.15s ease-out;
+            transform: translate(-50%, -50%);
         }
 
-        /* --- BelArosa Sticky Scene Architecture --- */
-        .page-wrapper { position: relative; line-height: normal;}
+        header {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            z-index: 1000;
+            background: transparent;
+            border-bottom: 1px solid var(--nc-green);
+        }
+
+        .logo { height: 40px;}
+
+        .page-wrapper { 
+            position: relative; 
+            line-height: 1.6;
+        }
 
         .section-container {
             position: relative;
-            height: 100vh;
+            min-height: 100vh;
             width: 100%;
             overflow: hidden;
             display: flex;
@@ -69,7 +95,6 @@
             perspective: 1000px;
         }
 
-        /* --- Red separator between sections --- */
         .section-container:not(:last-child)::after {
             content: "";
             position: absolute;
@@ -82,37 +107,36 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.35);
         }
 
-        /* The background image that stays fixed or moves slightly */
         .bg-fixed {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 110%; /* Extra height for parallax */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 110%;
             z-index: -1;
             background-size: cover;
+            background-repeat: no-repeat;
             background-position: center;
             filter: brightness(40%);
             transition: transform 0.1s linear;
-            line-height: normal;
         }
 
-        /* For sections where the full image must be shown without cropping */
         .bg-fixed.bg-contain {
-            background-size: auto;
+            background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
             filter: none;
             height: 100%;
         }
 
-        /* Centered Narrative Text */
         .content-wrap {
             position: relative;
             z-index: 10;
             text-align: center;
             max-width: 850px;
             padding: 0 5%;
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 10;
+            transform: translateY(30px);
             transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
@@ -121,40 +145,114 @@
             transform: translateY(0);
         }
 
-        h1 { font-family: var(--heading-font); font-size: clamp(2.5rem, 7vw, 5rem); margin: 0 0 2rem 0; line-height: 0.9; }
-        h2 { font-family: var(--heading-font); font-size: clamp(1.5rem, 4vw, 2.8rem); color: var(--nc-gold); margin-bottom: 2rem; }
-        p { font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.8; font-weight: 300; margin-bottom: 2rem; }
-        .highlight { -webkit-text-stroke: 1px var(--nc-gold); color: transparent; }
-
-        /* --- Special Hero Layout (Page 1) --- */
-        .hero-split { display: flex; justify-content: space-between; width: 100%; align-items: center; }
-        .hero-img { max-width: 250px; height: auto; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5)); }
+        h1 { 
+            font-family: var(--heading-font); 
+            font-size: clamp(2.5rem, 7vw, 5rem); 
+            margin: 0 0 2rem 0; 
+            line-height: 1.1;
+        }
         
-        .content-wrap img { max-width: 100%; height: auto; margin: 2rem 0; }
-
-        /* --- Credits Box --- */
-        .credits-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-            text-align: left; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;
+        h2 { 
+            font-family: var(--heading-font); 
+            font-size: clamp(1.5rem, 4vw, 2.8rem); 
+            color: var(--nc-gold); 
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+        
+        p { 
+            font-size: clamp(1.1rem, 2vw, 1.4rem); 
+            line-height: 1.8; 
+            font-weight: 300; 
+            margin-bottom: 2rem;
+        }
+        
+        .highlight { 
+            -webkit-text-stroke: 1px var(--nc-gold); 
+            color: transparent;
         }
 
-        /* --- Footer --- */
+        .hero-split { 
+            display: flex; 
+            justify-content: space-evenly; 
+            width: 100%; 
+            align-items: center;
+            /*gap: 2rem;*/
+            max-width: 100%;
+        }
+        
+        .hero-img { 
+            max-width: 250px; 
+            height: auto; 
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5));
+        }
+        
+        .content-wrap img { 
+            max-width: 100%; 
+            height: auto; 
+            margin: 2rem 0;
+        }
+
+        .credits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
         footer.site-footer {
             text-align: center;
             padding: 40px 5%;
-            font-size: clamp(0.7rem, 1.6vw, 0.9rem);
+            font-size: clamp(0.8rem, 1.6vw, 1rem);
             opacity: 0.9;
             color: rgba(255,255,255,0.9);
         }
 
         footer.site-footer .footer-inner {
-            max-width: auto;
+            max-width: 800px;
             margin: 0 auto;
-            line-height: 1.4;
-            word-break: break-word;
-            white-space: normal;
+            line-height: 1.6;
         }
 
+        /* Legacy Initiative Logo */
+        .legacy-logo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            opacity: 0.7;
+            z-index: 999;
+            transition: opacity 0.3s ease;
+        }
+
+        .legacy-logo:hover {
+            opacity: 1;
+        }
+
+        .legacy-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .hero-split {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            h1 {
+                text-align: center !important;
+            }
+            
+            .credits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -163,8 +261,8 @@
     <div class="cursor-circle" id="circle"></div>
 
     <header>
-        <img src="img_1/New_Culture_Studios_logo.jpeg" alt="Logo" style="height: 45px;">
-        <div style="color:var(--nc-gold); letter-spacing:3px; font-size:0.1rem; text-transform:uppercase;">Vernacular</div>
+        <img src="img_1/New_Culture_Studios_logo.jpeg" alt="New Culture Studios" class="logo">
+        <div style="color:var(--nc-gold); letter-spacing:3px; font-size:0.9rem; text-transform:uppercase;">Vernacular</div>
     </header>
 
     <div id="smooth-wrapper">
@@ -174,9 +272,9 @@
                 <div class="bg-fixed" style="background-image: url('img_1/Garden.jpeg');"></div>
                 <div class="content-wrap" style="max-width: 100%;">
                     <div class="hero-split">
-                        <h1 style="text-align: left; font-style: var(--custom-font);"><span class="highlight">DEMAS</span><br>NWOKO</h1>
+                        <h1 style="text-align: left; font-family: var(--custom-font);"><span class="highlight">DEMAS</span><br>NWOKO</h1>
                         <img src="img_1/Landing_Image_1.png" class="hero-img">
-                        <h1 style="text-align: right; font-style: var(--custom-font); font-size: auto;"><span class="highlight">HIS HEARTBEAT</span><br>HIS LEGACY</h1>
+                        <h1 style="text-align: right; font-family: var(--custom-font);"><span class="highlight">HIS HEARTBEAT</span><br>HIS LEGACY</h1>
                     </div>
                 </div>
             </section>
@@ -184,10 +282,10 @@
             <section class="section-container reveal-target">
                 <div class="bg-fixed" style="background-image: url('img_1/Landing_Image_1.png');"></div>
                 <div class="content-wrap">
-                    <p style="font-style: italic; font-size: 2rem;">"...if it is not vernacular, what else is there? Vernacular is your mother's tongue—that is your nature.<br>So how can you design for your client without understanding his vernacular?"</p>
+                    <p style="font-style: italic; font-size: 1.8rem;">"...if it is not vernacular, what else is there? Vernacular is your mother's tongue—that is your nature.<br>So how can you design for your client without understanding his vernacular?"</p>
                     <strong style="color:var(--nc-gold)">Baba Demas, December 2023</strong>
                     <p><strong>This is Baba's story.</strong></p>
-                    <p>His story of the langauge called <strong>Vernacular—the natural langauge of design—Baba's heartbeat and legacy</strong></p>
+                    <p>His story of the language called <strong>Vernacular—the natural language of design—Baba's heartbeat and legacy</strong></p>
                 </div>
             </section>
 
@@ -199,9 +297,9 @@
                     <p>We were researching <strong>Africanfuturism in Architecture</strong> and its impact on the <strong>African's health and wellness.</strong> At the time, there was not much work on this. Baba's was one of the <strong>authentic few.</strong></p>
                     <p>For me, it felt like a dream—encountering in person someone we had only read about in our Visual Arts classes.</p>
                     <p>Among the many invaluable wisdoms Baba deposited in us during that session, <strong>one thing stood out:</strong><br>Baba did not care for labels—African or traditional</p>
-                    <p>He recounted receiveing an award abroad, where foreigners asked him what type of architecture he identified with.<br>Was it vernacular?</p>
-                    <p>He replied:<br>"if it is not vernacular, what else is there? Vernacular is your mother's tongue—that is your nature. So how can yu design for your client without understanding his vernacular?"</p>
-                    <p>To Baba, <strong>vernacular is the natural langauge of design.</strong></p>
+                    <p>He recounted receiving an award abroad, where foreigners asked him what type of architecture he identified with.<br>Was it vernacular?</p>
+                    <p>He replied:<br>"if it is not vernacular, what else is there? Vernacular is your mother's tongue—that is your nature. So how can you design for your client without understanding his vernacular?"</p>
+                    <p>To Baba, <strong>vernacular is the natural language of design.</strong></p>
                     <p>So this <strong>mini-hybrid exhibit project</strong> takes on the life of Baba's vernacular—to <strong>visually reinterpret and explore his heartbeat through art.</strong></p>
                     <p>As architects, we took to the <strong>paintbrush, the pen, and the mouse</strong> to tell Baba's story.<br><strong>So, join us for the ride.</strong></p>
                 </div>
@@ -210,25 +308,23 @@
             <section class="section-container reveal-target">
                 <div class="bg-fixed" style="background-image: url('img_1/Garden.jpeg');"></div>
                 <div class="content-wrap">
-                    <!-- Journey Through Art Root - Postcard 1 - Page 4 -->
-                    <!-- White Page background Picture-->
                     <h1>The Journey</h1>
                     <h2>We already know Baba's history. <i>Check Google if you don't.</i><br>We are not here for that—rather, <strong>we are here to tell his story</strong></h2>
                     <p>We did not begin this work by asking who Demas Nwoko is.</p>
-                    <p>we began by listening to what his work has been saying all along.</p>
-                    <p>Across bukidings, artworks, spaces, and silences, one idea kept returning—quietly, insitently, without explanation:<br><strong>Vernacular is the natural langauge of design.</strong></p>
+                    <p>We began by listening to what his work has been saying all along.</p>
+                    <p>Across buildings, artworks, spaces, and silences, one idea kept returning—quietly, insistently, without explanation:<br><strong>Vernacular is the natural language of design.</strong></p>
                     <p>This project is not merely an archive or a catalogue.<br>It is our journey of encountering that philosophy, sitting with it, and allowing it to shape how we <strong>see space, culture, and making.</strong></p>
-                    <p>It is our journey of <strong>capturing Baba's heart,<br>telling his story,</strong>and <strong>shaping his legacy.</strong></p>
+                    <p>It is our journey of <strong>capturing Baba's heart,<br>telling his story,</strong> and <strong>shaping his legacy.</strong></p>
                 </div>
             </section>
 
-            <section class="section-container reveal-target page-5">
+            <section class="section-container reveal-target">
                 <div class="bg-fixed" style="background-image: url('img_1/Root_image_Postcard_2-3.jpeg'); filter: brightness(30%);"></div>
                 <div class="content-wrap">
-                    <h1 style="color:var(--white); text-shadow: 0 6px 30px rgba(0,0,0,0.7); position: relative; z-index: 20;">His Roots His Future</h1>
-                    <h2 style="color:var(--nc-gold); position: relative; z-index: 20;">Baba's journey into vernacular began <strong>before</strong> the days of the Zaria Art Society.</h2>
-                    <p>from the start, Baba sought not to imitate foreign aesthetics, but to <strong>root modern art and architecture in the soil of Nigerian life</strong>—its materials, rhythms, and cosmology.</p>
-                    <p>He saw design not as a borrowed langauge, but as a <strong>living dialect of place.</strong></p>
+                    <h1 style="color:var(--white); text-shadow: 0 6px 30px rgba(0,0,0,0.7);">His Roots His Future</h1>
+                    <h2 style="color:var(--nc-gold);">Baba's journey into vernacular began <strong>before</strong> the days of the Zaria Art Society.</h2>
+                    <p>From the start, Baba sought not to imitate foreign aesthetics, but to <strong>root modern art and architecture in the soil of Nigerian life</strong>—its materials, rhythms, and cosmology.</p>
+                    <p>He saw design not as a borrowed language, but as a <strong>living dialect of place.</strong></p>
                     <p>In his words and in his practice, vernacular was not a limitation—<strong>it was the heartbeat of design itself.</strong></p>
                     <p>It was how culture spoke through <strong>space, texture, and form.</strong></p>
                 </div>
@@ -237,9 +333,6 @@
             <section class="section-container reveal-target">
                 <div class="bg-fixed" style="background-image: url('img_1/Root_image_Postcard_2-3.jpeg');"></div>
                 <div class="content-wrap">
-                    <!-- Journey Through Art Future - Postcard 3 - Page 6 -->
-                    <!-- Background Picture: Patterns postcard-->
-                    <!-- Sub Pictures: Pictures in circular frames (clickable)-->
                     <h1>His Roots His Future</h1>
                     <p>So when Temi paints this piece, she tells the story of his beginning—<br>his longing to tell the story of his fathers.</p>
                     <p>And so we painted patterns that speak of <strong>material honesty, spatial rhythm, and continuity.</strong></p>
@@ -251,12 +344,11 @@
             <section class="section-container reveal-target">
                 <div class="bg-fixed" style="background-image: url('img_1/Garden.jpeg');"></div>
                 <div class="content-wrap">
-                    <!-- Use his works as the background - Page 7 -->
                     <p>Vernacular, in Demas Nwoko's work, is <strong>not nostalgia.</strong></p>
                     <p>It is not tradition preserved behind glass.</p>
                     <p>It is not the past repeated.</p>
-                    <p>It is <strong>langauge</strong>—a living system through which people, materials, climate, sound, ritual, and belief spaek to one another.</p>
-                    <p>A langauge learned not in classrooms, but through <strong>proximity</strong>—to land, to craft, to use, to meaning.</p>
+                    <p>It is <strong>language</strong>—a living system through which people, materials, climate, sound, ritual, and belief speak to one another.</p>
+                    <p>A language learned not in classrooms, but through <strong>proximity</strong>—to land, to craft, to use, to meaning.</p>
                     <p>In his architecture, walls do not merely enclose space;<br>they <strong>respond</strong>—to heat, to light, to movement, to gathering.</p>
                     <p>In his art, form does not decorate; <strong>it remembers.</strong><br>In his philosophy, design is not imposed—<strong>it emerges.</strong></p>
                     <p>To work vernacularly is not to reject modernity,<br>but to <strong>translate it.</strong></p>
@@ -264,10 +356,8 @@
             </section>
 
             <section class="section-container reveal-target">
-                <div class="bg-fixed bg-contain" style="background-image: url('img_1/DEMAS NWOKO 8-9_page-0001.jpg');"></div>
+                <div class="bg-fixed" style="background-image: url('img_1/DEMAS NWOKO 8-9_page-0001.jpg');"></div>
                 <div class="content-wrap">
-                    <!-- Background Picture: His Face - Page 8 -->
-                    <!-- Sub Picture: Picture in circular frames (clickable)-->
                     <h1>His Heartbeat, His Legacy</h1>
                     <p>And so, in trying to capture his heartbeat, Temi remembers the saying:<br><strong>"The eyes are the window to the soul."</strong></p>
                     <p>There was no better way than to trace each line with his words,<br>to lay each colour with his fire,<br>and to draw from the permanence of his heart</p>
@@ -275,23 +365,19 @@
             </section>
 
             <section class="section-container reveal-target">
-                <div class="bg-fixed bg-contain" style="background-image: url('img_1/DEMAS NWOKO 8-9_page-0001.jpg');"></div>
+                <div class="bg-fixed" style="background-image: url('img_1/DEMAS NWOKO 8-9_page-0001.jpg');"></div>
                 <div class="content-wrap">
-                    <!-- Background Picture: His Face - Page 9 -->
-                    <!-- Sub Picture: Circular icons (clickable)-->
-                    <img src="img_1/DEMAS NWOKO 8-9_page-0001.jpg">
                     <h1>His Heartbeat, His Legacy</h1>
                     <p>The worth of a man is not valued by how much he got,<br>but by how much he gave—<br>not from the valleys of his hands,<br>but from the depths of his heart.</p>
                     <p><strong>That is his real legacy.</strong></p>
-                    <p>That is excatly what are captured in this piece—<br>his legacy not merely in achievements,<br>but in the spaces and works taht still speak,<br>and in the people he has inspired.</p>
+                    <p>That is exactly what are captured in this piece—<br>his legacy not merely in achievements,<br>but in the spaces and works that still speak,<br>and in the people he has inspired.</p>
                     <p>The hearts he has lit with fire—<br><strong>a fire to speak our vernacular,</strong><br>and create what is truly ours.</p>
                 </div>
             </section>
 
             <section class="section-container reveal-target">
-                <div class="bg-fixed" style="background-image: url('img_1/Garden.jpeg');"></div><!--Replace the Garden.jpeg with the Art Piece-->
+                <div class="bg-fixed" style="background-image: url('img_1/Garden.jpeg');"></div>
                 <div class="content-wrap">
-                    <!-- The art piece itself - Page 10 -->
                     <h1>The Art Piece</h1>
                     <p>John saw Demas Nwoko's story and saw a man emerging from a path rich with wisdom, rich with identity.</p>
                     <p>A man who knows not only where he is going, but remembers where he is coming from.</p>
@@ -300,7 +386,7 @@
             </section>
 
             <section class="section-container reveal-target">
-                <div class="bg-fixed" style="background-image: url('img_1/Garden.jpeg');"></div><!--Replace the Garden.jpeg with the Art Piece-->
+                <div class="bg-fixed" style="background-image: url('img_1/Garden.jpeg');"></div>
                 <div class="content-wrap">
                     <h1>The Art Piece</h1>
                     <p>This piece does not attempt to portray Demas Nwoko as a figure.</p>
@@ -315,10 +401,9 @@
             <section class="section-container reveal-target">
                 <div class="bg-fixed" style="background-image: url('img_1/Landing_Image_1.png');"></div>
                 <div class="content-wrap">
-                    <!-- Background Picture: Landing Page - Page 12-->
                     <h1>Conclusion</h1>
-                    <p>This project began as a gift.<br>But it quickly br=ecame a question.</p>
-                    <p>What does it mean to design when vernacular is treated not a reference, but as <strong>spirit?</strong></p>
+                    <p>This project began as a gift.<br>But it quickly became a question.</p>
+                    <p>What does it mean to design when vernacular is treated not as a reference, but as <strong>spirit?</strong></p>
                     <p>What happens when soil is not a backdrop, but a <strong>collaborator?</strong></p>
                     <p>We realised that to tell this story truthfully, we could not speak about Demas Nwoko in the usual way.</p>
                     <p>Instead, we chose to speak <strong>through the ideas his work has given us.</strong></p>
@@ -330,14 +415,13 @@
             <section class="section-container reveal-target">
                 <div class="bg-fixed" style="background-image: url('img_1/Garden.jpeg');"></div>
                 <div class="content-wrap">
-                    <!-- Garden image - Page 13-->
                     <h1>This Is Not an Ending</h1>
-                    <p>To say vernacular is the natural langauge of design is not a romantic claim.<br>It is a <strong>practical</strong> one.</p>
-                    <p>In a time when global design trends move faster than local realities,<br>Demas Nwoko's work reminds us that <strong>releveance comes from alignment, not speed.</strong></p>
-                    <p>If his work has been recognised beyind Nigeria,<br>it is because it never tried to leave home first.</p>
+                    <p>To say vernacular is the natural language of design is not a romantic claim.<br>It is a <strong>practical</strong> one.</p>
+                    <p>In a time when global design trends move faster than local realities,<br>Demas Nwoko's work reminds us that <strong>relevance comes from alignment, not speed.</strong></p>
+                    <p>If his work has been recognised beyond Nigeria,<br>it is because it never tried to leave home first.</p>
                     <p>This landing page is not a conclusion.<br>It is an opening.</p>
                     <p>An invitation to see vernacular<br>not as style, but as <strong>systems.</strong><br>Not as memory, but as <strong>method.</strong><br>Not as resistance, but as <strong>fluency.</strong></p>
-                    <p>The langauge was always there.</p>
+                    <p>The language was always there.</p>
                 </div>
             </section>
 
@@ -345,7 +429,7 @@
                 <div class="content-wrap">
                     <h1>Credits</h1>
                     <p>This project was conceived and produced by <strong>The Legacy Initiative,</strong> with the support of <strong>Arc Bofu (New Culture Studio).</strong></p>
-                    <p>The text and direction explore Demas Nwoko's teaching: <strong>vernacular as langauge.</strong></p>
+                    <p>The text and direction explore Demas Nwoko's teaching: <strong>vernacular as language.</strong></p>
                     <div class="credits-grid">
                         <div>
                             <strong>Project Lead & Chief Scribe</strong>
@@ -386,25 +470,23 @@
 
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
     <script>
-        // 1. Initialize Smooth Scroll
         const lenis = new Lenis({ duration: 1.4 });
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        function raf(time) { 
+            lenis.raf(time); 
+            requestAnimationFrame(raf); 
+        }
         requestAnimationFrame(raf);
 
-        // 2. BelArosa Parallax & Reveal Logic
         const targets = document.querySelectorAll('.reveal-target');
         const backgrounds = document.querySelectorAll('.bg-fixed');
 
-        lenis.on('scroll', (e) => {
+        lenis.on('scroll', () => {
             const y = window.scrollY;
-            
-            // Move backgrounds slightly for parallax depth
             backgrounds.forEach(bg => {
                 bg.style.transform = `translateY(${y * 0.1}px)`;
             });
         });
 
-        // 3. Intersection Observer (The Reveal)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -415,13 +497,18 @@
 
         targets.forEach(t => observer.observe(t));
 
-        // 4. Custom Cursor
         const dot = document.getElementById('dot');
         const circle = document.getElementById('circle');
+        
         document.addEventListener('mousemove', (e) => {
-            dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-            circle.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 16}px)`;
+            dot.style.left = e.clientX + 'px';
+            dot.style.top = e.clientY + 'px';
+            circle.style.left = e.clientX + 'px';
+            circle.style.top = e.clientY + 'px';
         });
     </script>
+    <div class="legacy-logo">
+        <img src="img_1/The_Legacy_Initiative_logo.jpeg" alt="The Legacy Initiative">
+    </div>
 </body>
 </html>

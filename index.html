@@ -89,8 +89,8 @@
             text-align: center;
             max-width: 850px;
             padding: 0 5%;
-            opacity: 0;
-            transform: translateY(40px);
+            opacity: 1;
+            transform: translateY(0);
             transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
@@ -99,14 +99,16 @@
             transform: translateY(0);
         }
 
-        h1 { font-family: var(--heading-font); font-size: clamp(2.5rem, 7vw, 5rem); margin: 0; line-height: 0.9; }
-        h2 { font-family: var(--heading-font); font-size: clamp(1.5rem, 4vw, 2.8rem); color: var(--nc-gold); margin-bottom: 1rem; }
-        p { font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem; }
+        h1 { font-family: var(--heading-font); font-size: clamp(2.5rem, 7vw, 5rem); margin: 0 0 2rem 0; line-height: 0.9; }
+        h2 { font-family: var(--heading-font); font-size: clamp(1.5rem, 4vw, 2.8rem); color: var(--nc-gold); margin-bottom: 2rem; }
+        p { font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.8; font-weight: 300; margin-bottom: 2rem; }
         .highlight { -webkit-text-stroke: 1px var(--nc-gold); color: transparent; }
 
         /* --- Special Hero Layout (Page 1) --- */
         .hero-split { display: flex; justify-content: space-between; width: 100%; align-items: center; }
-        .hero-img { max-width: 350px; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5)); }
+        .hero-img { max-width: 350px; height: auto; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5)); }
+        
+        .content-wrap img { max-width: 100%; height: auto; margin: 2rem 0; }
 
         /* --- Credits Box --- */
         .credits-grid {
@@ -193,7 +195,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="section-container reveal-target">
                 <div class="bg-fixed" style="background-image: url('img_1/Root_image_Postcard_2-3.jpeg');"></div>
                 <div class="content-wrap">
                     <!-- Journey Through Art Future - Postcard 3 - Page 6 -->
@@ -217,7 +219,7 @@
                     <p>It is <strong>langauge</strong>—a living system through which people, materials, climate, sound, ritual, and belief spaek to one another.</p>
                     <p>A langauge learned not in classrooms, but through <strong>proximity</strong>—to land, to craft, to use, to meaning.</p>
                     <p>In his architecture, walls do not merely enclose space;<br>they <strong>respond</strong>—to heat, to light, to movement, to gathering.</p>
-                    <p>In his art, form deos not decorate; <string>it remembers.</string><br>In his philosophy, design is not imposed—<strong>it emerges.</strong></p>
+                    <p>In his art, form does not decorate; <strong>it remembers.</strong><br>In his philosophy, design is not imposed—<strong>it emerges.</strong></p>
                     <p>To work vernacularly is not to reject modernity,<br>but to <strong>translate it.</strong></p>
                 </div>
             </section>
@@ -255,7 +257,7 @@
                     <p>John saw Demas Nwoko's story and saw a man emerging from a path rich with wisdom, rich with identity.</p>
                     <p>A man who knows not only where he is going, but remembers where he is coming from.</p>
                     <p>Mr Emmanuel crafted John's interpretation into this piece using <strong>Baba's soil clay</strong></p>
-                </div>*
+                </div>
             </section>
 
             <section class="section-container reveal-target">

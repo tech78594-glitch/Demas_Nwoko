@@ -82,6 +82,15 @@
             line-height: normal;
         }
 
+        /* For sections where the full image must be shown without cropping */
+        .bg-fixed.bg-contain {
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: none;
+            height: 100%;
+        }
+
         /* Centered Narrative Text */
         .content-wrap {
             position: relative;
@@ -225,7 +234,7 @@
             </section>
 
             <section class="section-container reveal-target">
-                <div class="bg-fixed" style="background-image: url('img_1/DEMAS NWOKO 8-9_page-0001.jpg');"></div>
+                <div class="bg-fixed bg-contain" style="background-image: url('img_1/DEMAS NWOKO 8-9_page-0001.jpg');"></div>
                 <div class="content-wrap">
                     <!-- Background Picture: His Face - Page 8 -->
                     <!-- Sub Picture: Picture in circular frames (clickable)-->
@@ -236,7 +245,7 @@
             </section>
 
             <section class="section-container reveal-target">
-                <div class="bg-fixed" style="background-image: url('img_1/DEMAS NWOKO 8-9_page-0001.jpg');"></div>
+                <div class="bg-fixed bg-contain" style="background-image: url('img_1/DEMAS NWOKO 8-9_page-0001.jpg');"></div>
                 <div class="content-wrap">
                     <!-- Background Picture: His Face - Page 9 -->
                     <!-- Sub Picture: Circular icons (clickable)-->

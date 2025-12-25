@@ -69,6 +69,19 @@
             perspective: 1000px;
         }
 
+        /* --- Red separator between sections --- */
+        .section-container:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            bottom: 0;
+            height: 4px;
+            background: var(--nc-red);
+            z-index: 12;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+        }
+
         /* The background image that stays fixed or moves slightly */
         .bg-fixed {
             position: absolute;
@@ -123,6 +136,24 @@
         .credits-grid {
             display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
             text-align: left; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;
+        }
+
+        /* --- Footer --- */
+        footer.site-footer {
+            text-align: center;
+            padding: 40px 5%;
+            font-size: clamp(0.7rem, 1.6vw, 0.9rem);
+            opacity: 0.9;
+            color: rgba(255,255,255,0.9);
+        }
+
+        footer.site-footer .footer-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            line-height: 1.4;
+            word-break: break-word;
+            white-space: normal;
+            text-align: left;
         }
 
     </style>
@@ -192,11 +223,11 @@
                 </div>
             </section>
 
-            <section class="section-container reveal-target">
-                <div class="bg-fixed" style="background-image: url('img_1/Root_image_Postcard_2-3.jpeg');"></div>
+            <section class="section-container reveal-target page-5">
+                <div class="bg-fixed" style="background-image: url('img_1/Root_image_Postcard_2-3.jpeg'); filter: brightness(30%);"></div>
                 <div class="content-wrap">
-                    <h1>His Roots His Future</h1>
-                    <h2>Baba's journey into vernacular began <strong>before</strong> the days of the Zaria Art Society.</h2>
+                    <h1 style="color:var(--white); text-shadow: 0 6px 30px rgba(0,0,0,0.7); position: relative; z-index: 20;">His Roots His Future</h1>
+                    <h2 style="color:var(--nc-gold); position: relative; z-index: 20;">Baba's journey into vernacular began <strong>before</strong> the days of the Zaria Art Society.</h2>
                     <p>from the start, Baba sought not to imitate foreign aesthetics, but to <strong>root modern art and architecture in the soil of Nigerian life</strong>—its materials, rhythms, and cosmology.</p>
                     <p>He saw design not as a borrowed langauge, but as a <strong>living dialect of place.</strong></p>
                     <p>In his words and in his practice, vernacular was not a limitation—<strong>it was the heartbeat of design itself.</strong></p>
@@ -345,8 +376,11 @@
                 </div>
             </section>
 
-            <footer style="text-align: center; padding: 40px; font-size: 0.7rem; opacity: 0.4;">
-                &copy; Full copyrights and ownership of this project belong to <strong>The Legacy Initiative,</strong> with display<br> rights granted to <strong>The New Culture Foundation</strong> through Arc Anyibofu Ugbodaga.<br>Image of Demas Nwoko and his works were sourced from internet archives.<br>The New Culture font was used under permission from New Culture Studios.
+            <footer class="site-footer">
+                <div class="footer-inner">
+                    <p>&copy; Full copyrights and ownership of this project belong to <strong>The Legacy Initiative</strong>, with display rights granted to <strong>The New Culture Foundation</strong> through Arc Anyibofu Ugbodaga.</p>
+                    <p>Image of Demas Nwoko and his works were sourced from internet archives. The New Culture font was used under permission from New Culture Studios.</p>
+                </div>
             </footer>
         </div>
     </div>
